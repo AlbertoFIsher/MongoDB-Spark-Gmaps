@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    #map {
+      width: 800px;
+      height: 1200px;
+    }
+  </style>
+</head>
+<!--Jquery-->
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="/js/ajax.js" type="text/javascript"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<body>
+
+<div class="row">
+    <div class="col-sm-8" id="map">
+
+    </div>
+
+    <div class="col-sm-4 " id="buscador">
+        <h1><center>Elementos del buscador</center></h1>
+        <div style="display:block">
+            <form>
+                <label for="a">Numero 1:</label>
+                <input type="number" id="a"/>
+                <br>
+                <label for="a">Numero 2:</label>
+                <input type="number" id="b"/>
+                <br>
+                <input type="button" id="buttonSum" value="Sum"/>
+                <br>
+                <input type="button" id="buttonSum2" value="SumaJson"/>
+                <br>
+                <input type="button" id="buttonMongo" value="Mongo"/>
+                <br>
+                <p>Resultado:&nbsp;:<span id="result"></span></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12" id="servlet">
+
+    </div>
+</div>
+<!-- Google Maps JS API -->
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+<!-- GMaps Library -->
+<script src="/js/gmaps.js"></script>
+<script>
+    /* Map Object */
+    var mapObj = new GMaps({
+        el: '#map',
+        lat: 19.4978,
+        lng:  -99.1269
+    });
+
+    var mapObj = new GMaps({
+        el: '#map',
+        lat: 19.4978,
+        lng:  -99.1269,
+        click: function(e) {
+            alert('Se dio click en el mapa');
+        },
+        zoom_changed: function(e) {
+            alert('Se aplico Zoom en el mapa');
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
