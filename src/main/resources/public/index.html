@@ -1,13 +1,30 @@
 <!doctype html>
 <html>
 <head>
-  <style>
-    #map {
-      width: 800px;
-      height: 1200px;
-    }
-  </style>
+    <style>
+
+
+        #map {
+            width: 100%;
+            height: 800px;
+            padding-right: 50px;
+        }
+    </style>
+
+
+
 </head>
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.min.css"/
 <!--Jquery-->
 <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -23,33 +40,60 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
 <body>
 
 <div class="row">
+    <center>
+        <button class="btn btn-primary btn-lg" id="elementos" ><i class="fas fa-angle-double-down"></i> Elementos del buscador <i class="fas fa-angle-double-down"></i></button>
+    </center>
+
+
+
+    <center><div class="" id="buscador" style="display: none;">
+
+        <div>
+            <form>
+                <br>
+                <input type="button" class="btn btn-primary" id="buttonCalles" value="Calles"/>
+                <input type="button" class="btn btn-success" id="buttonColonia" value="Colonia"/>
+                <input type="button" class="btn btn-info" id="buttonSecciones" value="Secciones"/>
+                <input type="button" class="btn btn-warning" id="buttonEP" value="Estacionamientos Publicos"/>
+                <input type="button" class="btn btn-danger" id="buttonParq" value="Parquimetros"/>
+                <br>
+                <br>
+                <input type="button" class="btn btn-default" id="buttonPS1" value=" EP Polanco Seccion 1"/>
+                <input type="button" class="btn btn-primary" id="buttonPS2" value="EP Polanco Seccion 2"/>
+                <input type="button" class="btn btn-success" id="buttonPS3" value="EP Polanco Seccion 3"/>
+                <input type="button" class="btn btn-info" id="buttonPS4" value="EP Polanco Seccion 4"/>
+                <input type="button" class="btn btn-warning" id="buttonPS5" value="EP Polanco Seccion 5"/>
+
+                <br>
+
+                <!--<h2>Resultado:<span id="result"></span></h2>-->
+
+
+
+            </form>
+        </div>
+        <button class="btn btn-default" id="ocultar"><i class="fas fa-angle-double-up"></i> Ocultar <i class="fas fa-angle-double-up"></i></button>
+
+    </div></center>
+
+    <br>
     <div class="col-sm-8" id="map">
 
     </div>
 
-    <div class="col-sm-4 " id="buscador">
-        <h1><center>Elementos del buscador</center></h1>
-        <div style="display:block">
-            <form>
-                <label for="a">Numero 1:</label>
-                <input type="number" id="a"/>
-                <br>
-                <label for="a">Numero 2:</label>
-                <input type="number" id="b"/>
-                <br>
-                <input type="button" id="buttonSum" value="Sum"/>
-                <br>
-                <input type="button" id="buttonSum2" value="SumaJson"/>
-                <br>
-                <input type="button" id="buttonMongo" value="Mongo"/>
-                <br>
-                <p>Resultado:&nbsp;:<span id="result"></span></p>
-            </form>
-        </div>
-    </div>
+
+
+
+
+
+
 </div>
 
 <div class="row">
@@ -61,25 +105,37 @@
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 
 <!-- GMaps Library -->
-<script src="/js/gmaps.js"></script>
+<script src="js/gmaps.js"></script>
 <script>
-    /* Map Object */
-    var mapObj = new GMaps({
-        el: '#map',
-        lat: 19.4978,
-        lng:  -99.1269
-    });
+
 
     var mapObj = new GMaps({
         el: '#map',
-        lat: 19.4978,
-        lng:  -99.1269,
+        lat: 19.432396,
+        lng:  -99.203406,
         click: function(e) {
-            alert('Se dio click en el mapa');
+            //alert('Se dio click en el mapa');
         },
         zoom_changed: function(e) {
-            alert('Se aplico Zoom en el mapa');
+            //alert('Se aplico Zoom en el mapa');
         }
+    });
+
+
+
+    $('#elementos').click(function(){
+        $('#buscador').css("display", "block");
+        $('#elementos').css("display", "none");
+        //  $('.map').style.width = "60%";
+
+    });
+
+    $('#ocultar').click(function(){
+        $('#buscador').css("display", "none");
+        $('#elementos').css("display", "block");
+
+
+
     });
 
 

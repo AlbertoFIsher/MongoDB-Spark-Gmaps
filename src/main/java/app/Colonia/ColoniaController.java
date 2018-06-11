@@ -1,27 +1,25 @@
-package app.Calle;
+package app.Colonia;
 
 import app.Conexion.MongoDB;
 import spark.Request;
 import spark.Response;
 import spark.Route;
 import java.util.List;
-
 import static spark.Spark.halt;
 
-public class CalleController {
-
+public class ColoniaController {
 
     public static MongoDB database;
 
-    public static Route getAllCalles = (Request req, Response resp) -> {
+    public static Route getColonia = (Request req, Response resp) -> {
 
 
         resp.type("application/json");
         try {
 
             database  = new MongoDB();
-            List<Calle> listaCalle  = database.getAllCalle();
-            return listaCalle;
+            List<Colonia> listaColonia  = database.getAllColonia();
+            return listaColonia;
 
 
         } catch (Exception e) {
@@ -30,7 +28,13 @@ public class CalleController {
             //aux="No la hizo";
         }
 
-        return database.getAllCalle();
+        return database.getAllColonia();
 
     };
+
+
+
+
+
+
 }
